@@ -300,6 +300,9 @@ class Command {
 			global $$key;
 		}
 
+		// Cater for renamed/new functions that might be called by templates that are not in the loaded version of WP.
+		require_once dirname( __FILE__ ) . '/function-shims.php';
+
 		// Load the theme template.
 		ob_start();
 		require_once( ABSPATH . WPINC . '/template-loader.php' );
